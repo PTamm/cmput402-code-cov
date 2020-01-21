@@ -28,5 +28,9 @@ jobs:
       working-directory: .
       run: ./gradlew test
 
+test:
+  post:
+    - if [ -e ./gradlew ]; then ./gradlew jacocoTestReport;else gradle jacocoTestReport;fi
+
     # TODO: Add Codecov (make sure to set up on codecov.io as well) 
     #       for test coverage reports
